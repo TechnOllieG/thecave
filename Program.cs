@@ -66,7 +66,7 @@ namespace Textäventyr
                 string temp = Console.ReadLine().ToLower();
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
 
-                if (temp == "jump" || temp=="jump down")
+                if (temp == "jump" || temp=="jump down" || temp == "drop" || temp == "drop down")
                 {
                     Console.WriteLine("\nAfter a few moments of hesitation you jump down to the floor, but you hurt your leg in the fall. Your mobility is compromised.");
                     Var.hp -= 10;
@@ -189,7 +189,7 @@ namespace Textäventyr
                 string temp = Console.ReadLine().ToLower();
                 Console.ForegroundColor = ConsoleColor.Blue;
 
-                if (temp == "get crowbar" || temp == "loot" && !Var.crow)
+                if (temp == "get crowbar" || temp == "pick up crowbar" || temp == "loot" && !Var.crow)
                 {
                     Var.crow = true;
                     Console.WriteLine("\nYou slowly move toward the crowbar to pick it up when you realize that you still don’t have any arms. Erik notices your frustrations.\n\nErik: You want help holding onto that?\nDavos : Yeah, that would be nice thanks.\n\nErik picked up the crowbar.");
@@ -255,7 +255,7 @@ namespace Textäventyr
                 string temp = Console.ReadLine().ToLower();
                 Console.ForegroundColor = ConsoleColor.Green;
 
-                if (temp == "pick up key" || temp == "get key" && !Var.key)
+                if (temp == "pick up key" || temp == "get key" || temp == "loot" && !Var.key)
                 {
                     Var.key = true;
                     Console.WriteLine("\nYou hesitate for a bit. Then you kneel down and bend forward and pick up the key with your mouth. You found the key");
@@ -280,7 +280,7 @@ namespace Textäventyr
                 string temp = Console.ReadLine().ToLower();
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
 
-                if (temp == "use key" || temp == "unlock door")
+                if (temp == "use key" || temp == "unlock door" || temp == "unlock" || temp == "key")
                 {
                     if(Var.key)
                     {
@@ -293,21 +293,48 @@ namespace Textäventyr
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("\nMissing items.");
                         fourC();
                     }
                 }
-                else if (temp == "pick lock" || temp == "help" || temp == "get help")
+                else if (temp == "pick lock" || temp == "help" || temp == "get help" || temp == "use crowbar" || temp == "crowbar" || temp == "pry door open" || temp == "pry door" || temp == "force door open")
                 {
                     if(Var.crow)
                     {
-                        Console.WriteLine("\nDavos: Hey Erik! You still got that crowbar? Can you open this door?\nErik: Sure, I’ll be right there\nErik climbs onto the stone shelf and uses the crowbar on the door.As the door opens there is a magic spark from inside the room.The room appears to be completely empty except for a piece of paper that reads: Intruder alert, security system activated.\n\nYou have failed.");
+                        Console.WriteLine("\nDavos: Hey Erik! You still got that crowbar? Can you open this door?\nErik: Sure, I’ll be right there\nErik climbs onto the stone shelf and uses the crowbar on the door. As the door opens there is a magic spark from inside the room.The room appears to be completely empty except for a piece of paper that reads: Intruder alert, security system activated.\n");
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("You have failed.");
                         failed();
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("\nMissing items.");
+                        fourC();
+                    }
+                }
+                else if (temp == "open door" || temp == "open")
+                {
+                    if(Var.key)
+                    {
+                        Console.WriteLine("\nYou bend down and put the key still in your mouth into the lock. You turn it and open the door. On the inside is a large treasure room filled with gold coins, rubies, sapphires, emeralds, necklaces and many spell scrolls, there are also health potions and other potions in all colors and amounts.");
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine("\nCongratulations! You have won!");
+                        Console.ResetColor();
+                        Console.WriteLine("\nPress any key to continue . . .");
+                        Console.ReadKey();
+                    }
+                    else if(Var.crow)
+                    {
+                        Console.WriteLine("\nDavos: Hey Erik! You still got that crowbar? Can you open this door?\nErik: Sure, I’ll be right there\nErik climbs onto the stone shelf and uses the crowbar on the door. As the door opens there is a magic spark from inside the room.The room appears to be completely empty except for a piece of paper that reads: Intruder alert, security system activated.\n");
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("You have failed.");
+                        failed();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("\nMissing items.");
                         fourC();
                     }
