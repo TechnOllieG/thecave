@@ -8,8 +8,8 @@ namespace Textäventyr
 {
     static class Var
     {
-        public static short helped = 0;
-        public static short hp = 20;
+        public static int helped = 0;
+        public static int hp = 20;
         public static bool key = false, crow = false;
     }
     class Program
@@ -64,7 +64,7 @@ namespace Textäventyr
                 string temp = Console.ReadLine().ToLower();
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
 
-                if (temp == "jump" || temp=="jump down" || temp == "walk" || temp == "walk north" || temp == "run" || temp == "north")
+                if (temp == "jump" || temp=="jump down")
                 {
                     Console.WriteLine("\nAfter a few moments of hesitation you jump down to the floor, but you hurt your leg in the fall. Your mobility is compromised.");
                     Var.hp -= 10;
@@ -96,19 +96,19 @@ namespace Textäventyr
                 Console.WriteLine("\nInput Command:");
                 string temp = Console.ReadLine().ToLower();
 
-                if (temp == "walk west" || temp == "west" || temp == "river" || temp == "walk to river" || temp == "go to river")
+                if (temp == "walk west" || temp == "west")
                 {
                     Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.WriteLine("\nYou arrive at the edge of the river, it is about 2 meters wide, on the other side you spot something shiny on the floor.");
                     threeA();
                 }
-                else if (temp == "walk north" || temp == "north" || temp == "daise" || temp == "go to daise" || temp == "walk to daise")
+                else if (temp == "walk north" || temp == "north")
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("\nSlowly you walk up to the dead body on the daise, you notice a tool by the body, it looks to be a crowbar, slightly covered in blood.");
                     threeB();
                 }
-                else if (temp == "walk east" || temp == "east" || temp == "walk to stone shelf" || temp == "stone shelf" || temp == "go to stone shelf" || temp == "door" || temp == "go to door" || temp == "walk to door")
+                else if (temp == "walk east" || temp == "east")
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("\nYou approach the stone shelf where the metal door resides on. It is too far up to crawl up on.");
@@ -152,7 +152,6 @@ namespace Textäventyr
                         Var.hp -= 5;
                         Console.WriteLine("\nYou jump over the river, but your leg gets more hurt in the landing. Every step is painful.");
                         Console.WriteLine("\nYou search the ground and spot the shiny item again. You move closer and you can see that it is a key.");
-
                     }
                     else
                     {
@@ -166,9 +165,10 @@ namespace Textäventyr
                     Console.Write("\nHirathak: ");
                     helped();
                     Console.WriteLine("Hirathak picks you up and jumps cleanly over the river, sets you down and then jumps back");
+                    Console.WriteLine("\nYou search the ground and spot the shiny item again. You move closer and you can see that it is a key.");
                     fourA();
                 }
-                else if (temp == "walk east" || temp == "back" || temp == "go back")
+                else if (temp == "walk east" || temp == "back" || temp == "go back" || temp == "east")
                 {
                     two();
                 }
@@ -186,7 +186,7 @@ namespace Textäventyr
                 string temp = Console.ReadLine().ToLower();
                 Console.ForegroundColor = ConsoleColor.Blue;
 
-                if (temp == "get crowbar" || temp == "loot" || temp == "crowbar" || temp == "pick up crowbar" || temp == "get tool" || temp == "pick up tool" && !Var.crow)
+                if (temp == "get crowbar" || temp == "loot" && !Var.crow)
                 {
                     Var.crow = true;
                     Console.WriteLine("\nYou slowly move toward the crowbar to pick it up when you realize that you still don’t have any arms. Erik notices your frustrations.\n\nErik: You want help holding onto that?\nDavos : Yeah, that would be nice thanks.\n\nErik picked up the crowbar.");
@@ -210,7 +210,7 @@ namespace Textäventyr
                 string temp = Console.ReadLine().ToLower();
                 Console.ForegroundColor = ConsoleColor.Magenta;
 
-                if (temp == "run" || temp == "run up wall" || temp == "parkour" || temp == "walk east" || temp == "east")
+                if (temp == "run" || temp == "run up wall" || temp == "parkour")
                 {
                     if (Var.hp < 20)
                     {
@@ -251,13 +251,13 @@ namespace Textäventyr
                 string temp = Console.ReadLine().ToLower();
                 Console.ForegroundColor = ConsoleColor.Green;
 
-                if (temp == "pick up key" || temp == "get key" || temp == "key" && !Var.key)
+                if (temp == "pick up key" || temp == "get key" && !Var.key)
                 {
                     Var.key = true;
                     Console.WriteLine("\nYou hesitate for a bit. Then you kneel down and bend forward and pick up the key with your mouth. You found the key");
                     fourA();
                 }
-                else if (temp == "back" || temp == "go back" || temp == "jump across" || temp == "walk east")
+                else if (temp == "back" || temp == "go back" || temp == "jump across" || temp == "jump" || temp == "walk east" || temp == "east" || temp == "help")
                 {
                     Console.WriteLine("\nYou jump across the river and manage to land mainly on the healthy leg.");
                     two();
@@ -276,36 +276,39 @@ namespace Textäventyr
                 string temp = Console.ReadLine().ToLower();
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
 
-                if (temp == "use key" || temp == "unlock door" || temp == "open door" || temp == "open" && Var.key)
+                if (temp == "use key" || temp == "unlock door")
                 {
-
-                    Console.WriteLine("\nYou bend down and put the key still in your mouth into the lock. You turn it and open the door. On the inside is a large treasure room filled with gold coins, rubies, sapphires, emeralds, necklaces and many spell scrolls, there are also health potions and other potions in all colors and amounts.");
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.WriteLine("\nCongratulations! You have won!");
-                    Console.ResetColor();
-                    Console.WriteLine("\nPress any key to continue . . .");
-                    Console.ReadKey();
+                    if(Var.key)
+                    {
+                        Console.WriteLine("\nYou bend down and put the key still in your mouth into the lock. You turn it and open the door. On the inside is a large treasure room filled with gold coins, rubies, sapphires, emeralds, necklaces and many spell scrolls, there are also health potions and other potions in all colors and amounts.");
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine("\nCongratulations! You have won!");
+                        Console.ResetColor();
+                        Console.WriteLine("\nPress any key to continue . . .");
+                        Console.ReadKey();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\nMissing items.");
+                        fourC();
+                    }
                 }
-                else if (temp == "use key" || temp == "unlock door" || temp == "open door" || temp == "open" && !Var.key)
+                else if (temp == "pick lock" || temp == "help" || temp == "get help")
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nMissing items.");
-                    fourC();
+                    if(Var.crow)
+                    {
+                        Console.WriteLine("\nDavos: Hey Erik! You still got that crowbar? Can you open this door?\nErik: Sure, I’ll be right there\nErik climbs onto the stone shelf and uses the crowbar on the door.As the door opens there is a magic spark from inside the room.The room appears to be completely empty except for a piece of paper that reads: Intruder alert, security system activated.\n\nYou have failed.");
+                        failed();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\nMissing items.");
+                        fourC();
+                    }
                 }
-
-                else if (temp == "pick lock" || temp == "help" || temp == "get help" || temp == "open door" || temp == "open" && Var.crow)
-                {
-
-                    Console.WriteLine("\nDavos: Hey Erik! You still got that crowbar? Can you open this door?\nErik: Sure, I’ll be right there\nErik climbs onto the stone shelf and uses the crowbar on the door.As the door opens there is a magic spark from inside the room.The room appears to be completely empty except for a piece of paper that reads: Intruder alert, security system activated.\n\nYou have failed.");
-                    failed();
-                }
-                else if (temp == "pick lock" || temp == "help" || temp == "get help" || temp == "open door" || temp == "open" && !Var.crow)
-                { 
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nMissing items.");
-                    fourC();
-                }
-                else if (temp == "back" || temp == "go back" || temp == "jump down" || temp == "walk west")
+                else if (temp == "back" || temp == "go back" || temp == "jump down" || temp == "jump" || temp == "walk west" || temp == "west")
                 {
                     Console.WriteLine("\nYou jump down to the floor, the fall is shorter than for the first stone shelf. You make it down without any injuries");
                     two();
