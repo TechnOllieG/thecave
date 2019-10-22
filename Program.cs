@@ -59,7 +59,9 @@ namespace Textäventyr
             // step one
             void one()
             {
+
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("\nTo clarify, you are on the stone shelf, the first thing you need to do is to get down to the floor of the cavern");
                 Console.WriteLine("\nInput Command:");
                 string temp = Console.ReadLine().ToLower();
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -96,19 +98,19 @@ namespace Textäventyr
                 Console.WriteLine("\nInput Command:");
                 string temp = Console.ReadLine().ToLower();
 
-                if (temp == "walk west" || temp == "west")
+                if (temp == "walk west" || temp == "west" || temp == "walk to river" || temp == "go to river" || temp == "river")
                 {
                     Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.WriteLine("\nYou arrive at the edge of the river, it is about 2 meters wide, on the other side you spot something shiny on the floor.");
                     threeA();
                 }
-                else if (temp == "walk north" || temp == "north")
+                else if (temp == "walk north" || temp == "north" || temp == "walk to daise" || temp == "go to daise" || temp == "daise")
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("\nSlowly you walk up to the dead body on the daise, you notice a tool by the body, it looks to be a crowbar, slightly covered in blood.");
                     threeB();
                 }
-                else if (temp == "walk east" || temp == "east")
+                else if (temp == "walk east" || temp == "east" || temp == "walk to door" || temp == "go to door" || temp == "door" || temp == "walk to stone shelf" || temp == "go to stone shelf" || temp == "stone shelf" || temp == "walk to shelf" || temp == "go to shelf" || temp == "shelf")
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("\nYou approach the stone shelf where the metal door resides on. It is too far up to crawl up on.");
@@ -127,6 +129,7 @@ namespace Textäventyr
             void threeA()
             {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("\nYou can now either try to get accross the river or go back");
                 Console.WriteLine("Input Command:");
                 string temp = Console.ReadLine().ToLower();
                 Console.ForegroundColor = ConsoleColor.Blue;
@@ -206,6 +209,7 @@ namespace Textäventyr
             void threeC()
             {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("\nTo be clear: you are standing next to the stone shelf where the door resides on. You can either try to get onto the stone shelf or go back");
                 Console.WriteLine("\nInput Command:");
                 string temp = Console.ReadLine().ToLower();
                 Console.ForegroundColor = ConsoleColor.Magenta;
