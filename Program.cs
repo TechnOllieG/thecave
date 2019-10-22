@@ -61,7 +61,7 @@ namespace Textäventyr
             {
 
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("\nTo clarify, you are on the stone shelf, the first thing you need to do is to get down to the floor of the cavern");
+                Console.WriteLine("\nTo clarify, you are still on the stone shelf, the first thing you need to do is to get down to the floor of the cavern");
                 Console.WriteLine("\nInput Command:");
                 string temp = Console.ReadLine().ToLower();
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
