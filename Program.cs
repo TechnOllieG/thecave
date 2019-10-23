@@ -51,7 +51,7 @@ namespace Textäventyr
 
             void start()
             {
-                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine("You find yourself in a small dimly lit cavern. You are standing about 5 meters above the floor of the cavern on a stone shelf with the tunnel you just came from behind you.\n\nYou are a drow monk with the name Davos with rags for clothes. You are missing both of your arms since you lost them both a few days ago earlier in the cave system. Many basic tasks have become much harder to perform.\n\nYou are adventuring with 4 friends, the high-elf wizard Ravioli, the dragon-born barbarian Hirathak, the high-elf ranger Erik Richthofen and the tiefling druid Dyzmid. They are all next to you on the stone shelf.\n\nIn the cavern, north of you, there is a daise close to the center of the room with what appears to be a dead body on top of it.\n\nTo the west there is a river and west of that there is a small stone shore.\n\nWhat you focus on however is a sturdy metal door to the east of the room. This also resides on a stone shelf about 4 meters above the ground of the rest of the cavern. It is too far to jump from where you are now to the stone shelf where the door is located.\n\nHow to play: This is a text-based adventure game. You play the game by typing in simple instructions of between one and three words like walk north, get sword, pick lock etc.\nGood luck!");
                 one();
             }
@@ -112,7 +112,7 @@ namespace Textäventyr
                 }
                 else if (temp == "walk east" || temp == "east" || temp == "walk to door" || temp == "go to door" || temp == "door" || temp == "walk to stone shelf" || temp == "go to stone shelf" || temp == "stone shelf" || temp == "walk to shelf" || temp == "go to shelf" || temp == "shelf")
                 {
-                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("\nYou approach the stone shelf where the metal door resides on. It is too far up to crawl up on.");
                     threeC();
                 }
@@ -132,7 +132,7 @@ namespace Textäventyr
                 Console.WriteLine("\nYou can now either try to get accross the river or go back");
                 Console.WriteLine("Input Command:");
                 string temp = Console.ReadLine().ToLower();
-                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
 
                 if (temp == "swim" || temp == "swim across")
                 {
@@ -187,7 +187,7 @@ namespace Textäventyr
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("\nInput Command:");
                 string temp = Console.ReadLine().ToLower();
-                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
 
                 if (temp == "get crowbar" || temp == "pick up crowbar" || temp == "loot" && !Var.crow)
                 {
