@@ -52,7 +52,7 @@ namespace Textäventyr
             void start()
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("You find yourself in a small dimly lit cavern. You are standing about 5 meters above the floor of the cavern on a stone shelf with the tunnel you just came from behind you.\n\nYou are a drow monk with the name Davos with rags for clothes. You are missing both of your arms since you lost them both a few days ago earlier in the cave system. Many basic tasks have become much harder to perform.\n\nYou are adventuring with 4 friends, the high-elf wizard Ravioli, the dragon-born barbarian Hirathak, the high-elf ranger Erik Richthofen and the tiefling druid Dyzmid. They are all next to you on the stone shelf.\n\nIn the cavern, north of you, there is a daise close to the center of the room with what appears to be a dead body on top of it.\n\nTo the west there is a river and west of that there is a small stone shore.\n\nWhat you focus on however is a sturdy metal door to the east of the room. This also resides on a stone shelf about 4 meters above the ground of the rest of the cavern. It is too far to jump from where you are now to the stone shelf where the door is located.\n\nHow to play: This is a text-based adventure game. You play the game by typing in simple instructions of between one and three words like walk north, get sword, pick lock etc.\nGood luck!");
+                Console.WriteLine("You find yourself in a small dimly lit cavern. You are standing about 5 meters above the floor of the cavern on a stone platform with the tunnel you just came from behind you.\n\nYou are a drow monk with the name Davos with rags for clothes. You are missing both of your arms since you lost them both a few days ago earlier in the cave system. Many basic tasks have become much harder to perform.\n\nYou are adventuring with 4 friends, the high-elf wizard Ravioli, the dragon-born barbarian Hirathak, the high-elf ranger Erik Richthofen and the tiefling druid Dyzmid. They are all next to you on the stone platform.\n\nIn the cavern, north of you, there is a daise close to the center of the room with what appears to be a dead body on top of it.\n\nTo the west there is a river and west of that there is a small stone shore.\n\nWhat you focus on however is a sturdy metal door to the east of the room. This also resides on a stone platform about 4 meters above the ground of the rest of the cavern. It is too far to jump from where you are now to the stone platform where the door is located.\n\nHow to play: This is a text-based adventure game. You play the game by typing in simple instructions of between one and three words like walk north, get sword, pick lock etc.\nGood luck!");
                 one();
             }
 
@@ -61,7 +61,7 @@ namespace Textäventyr
             {
 
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("\nTo clarify, you are still on the stone shelf, the first thing you need to do is to get down to the floor of the cavern");
+                Console.WriteLine("\nTo clarify, you are still on the stone platform, the first thing you need to do is to get down to the floor of the cavern");
                 Console.WriteLine("\nInput Command:");
                 string temp = Console.ReadLine().ToLower();
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -79,6 +79,13 @@ namespace Textäventyr
                     Console.WriteLine("\nRavioli casts a quick spell, picks you up and slowly hover down to the floor where he sets you down.");
                     two();
                 }
+                else if (temp == "eat shit")
+                {
+                    Console.WriteLine("\nRavioli: Eat shit!");
+                    Console.WriteLine("\nErik: Uhm. Ok, that was unexpected. Like why?");
+                    Console.WriteLine("\nHirathak: Can we just focus on getting down first?");
+                    one();
+                }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -92,7 +99,7 @@ namespace Textäventyr
             void two()
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("\nYou find yourself on the floor of the cavern with the daise still to the north, the river to the west and the stone shelf with the metal door to the east.");
+                Console.WriteLine("\nYou find yourself on the floor of the cavern with the daise still to the north, the river to the west and the stone platform with the metal door to the east.");
 
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("\nInput Command:");
@@ -110,10 +117,10 @@ namespace Textäventyr
                     Console.WriteLine("\nSlowly you walk up to the dead body on the daise, you notice a tool by the body, it looks to be a crowbar, slightly covered in blood.");
                     threeB();
                 }
-                else if (temp == "walk east" || temp == "east" || temp == "walk to door" || temp == "go to door" || temp == "door" || temp == "walk to stone shelf" || temp == "go to stone shelf" || temp == "stone shelf" || temp == "walk to shelf" || temp == "go to shelf" || temp == "shelf")
+                else if (temp == "walk east" || temp == "east" || temp == "walk to door" || temp == "go to door" || temp == "door" || temp == "walk to stone platform" || temp == "go to stone platform" || temp == "stone platform" || temp == "walk to platform" || temp == "go to platform" || temp == "platform")
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("\nYou approach the stone shelf where the metal door resides on. It is too far up to crawl up on.");
+                    Console.WriteLine("\nYou approach the stone platform where the metal door resides on. It is too far up to crawl up on.");
                     threeC();
                 }
                 else
@@ -209,7 +216,7 @@ namespace Textäventyr
             void threeC()
             {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("\nTo be clear: you are standing next to the stone shelf where the door resides on. You can either try to get onto the stone shelf or go back");
+                Console.WriteLine("\nTo be clear: you are standing next to the stone platform where the door resides on. You can either try to get onto the stone platform or go back");
                 Console.WriteLine("\nInput Command:");
                 string temp = Console.ReadLine().ToLower();
                 Console.ForegroundColor = ConsoleColor.Magenta;
@@ -263,7 +270,14 @@ namespace Textäventyr
                 }
                 else if (temp == "back" || temp == "go back" || temp == "jump across" || temp == "jump" || temp == "walk east" || temp == "east" || temp == "help")
                 {
-                    Console.WriteLine("\nYou jump across the river and manage to land mainly on the healthy leg.");
+                    if (Var.hp < 20)
+                    {
+                        Console.WriteLine("\nYou jump across the river and manage to land mainly on the healthy leg.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nYou cleanly sprint and jump over the river.");
+                    }
                     two();
                 }
                 else
@@ -302,7 +316,7 @@ namespace Textäventyr
                 {
                     if(Var.crow)
                     {
-                        Console.WriteLine("\nDavos: Hey Erik! You still got that crowbar? Can you open this door?\nErik: Sure, I’ll be right there\nErik climbs onto the stone shelf and uses the crowbar on the door. As the door opens there is a magic spark from inside the room.The room appears to be completely empty except for a piece of paper that reads: Intruder alert, security system activated.\n");
+                        Console.WriteLine("\nDavos: Hey Erik! You still got that crowbar? Can you open this door?\nErik: Sure, I’ll be right there\nErik climbs onto the stone platform and uses the crowbar on the door. As the door opens there is a magic spark from inside the room.The room appears to be completely empty except for a piece of paper that reads: Intruder alert, security system activated.\n");
                         Console.ForegroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("You have failed.");
                         failed();
@@ -327,7 +341,7 @@ namespace Textäventyr
                     }
                     else if(Var.crow)
                     {
-                        Console.WriteLine("\nDavos: Hey Erik! You still got that crowbar? Can you open this door?\nErik: Sure, I’ll be right there\nErik climbs onto the stone shelf and uses the crowbar on the door. As the door opens there is a magic spark from inside the room.The room appears to be completely empty except for a piece of paper that reads: Intruder alert, security system activated.\n");
+                        Console.WriteLine("\nDavos: Hey Erik! You still got that crowbar? Can you open this door?\nErik: Sure, I’ll be right there\nErik climbs onto the stone platform and uses the crowbar on the door. As the door opens there is a magic spark from inside the room.The room appears to be completely empty except for a piece of paper that reads: Intruder alert, security system activated.\n");
                         Console.ForegroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("You have failed.");
                         failed();
@@ -341,7 +355,7 @@ namespace Textäventyr
                 }
                 else if (temp == "back" || temp == "go back" || temp == "jump down" || temp == "jump" || temp == "walk west" || temp == "west")
                 {
-                    Console.WriteLine("\nYou jump down to the floor, the fall is shorter than for the first stone shelf. You make it down without any injuries");
+                    Console.WriteLine("\nYou jump down to the floor, the fall is shorter than for the first stone platform. You make it down without any injuries");
                     two();
                 }
                 else
