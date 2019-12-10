@@ -13,4 +13,4 @@
 
 - Also lowercase/uppercase does not matter, "GeT KeY" and "get key" will be treated as the same command.
 
-- Spaces matter though, so while "get key" will work " get key" will not work.
+- Spaces matter though, so while "get key" will work " getkey" will not work.
